@@ -1,0 +1,1 @@
+A FreeRTOS learning repository for tasks, queues, semaphores, mutexes, event groups, software timers and embedded multitasking.
