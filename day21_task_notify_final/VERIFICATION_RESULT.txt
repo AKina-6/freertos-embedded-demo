@@ -1,0 +1,26 @@
+Day 21 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day21_task_notify_final/projects/04-task-notification-isr/build
+Test project /mnt/data/day21_task_notify_final/projects/04-task-notification-isr/build
+    Start 1: task_notification_tests
+1/2 Test #1: task_notification_tests ..........   Passed    0.01 sec
+    Start 2: event_processor_tests
+2/2 Test #2: event_processor_tests ............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.02 sec
+
+Simulation output:
+counting_before=3
+take_decrement returned=3 remaining=2
+take_clear returned=2 remaining=0
+bit_notify matched=0x07 remaining=0x00
+processed button=1 dma=1 uart=1 batches=1
+stats gives=3 takes=2 bit_sets=2

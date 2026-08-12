@@ -1,0 +1,4 @@
+#include <assert.h>
+#include "app/task_notification_core.h"
+#include "app/isr_event_processor.h"
+int main(void){task_notification_core_t n;task_notification_core_init(&n);task_notification_core_give(&n);task_notification_core_give(&n);task_notification_core_give(&n);assert(task_notification_core_take(&n,false)==3U);assert(n.count==2U);assert(task_notification_core_take(&n,true)==2U);assert(n.count==0U);task_notification_core_set_bits(&n,ISR_EVENT_BUTTON|ISR_EVENT_DMA_DONE);assert(task_notification_core_wait_bits(&n,ISR_EVENT_BUTTON|ISR_EVENT_DMA_DONE,ISR_EVENT_BUTTON|ISR_EVENT_DMA_DONE)==(ISR_EVENT_BUTTON|ISR_EVENT_DMA_DONE));isr_event_processor_t p;isr_event_processor_init(&p);isr_event_processor_handle(&p,ISR_EVENT_BUTTON|ISR_EVENT_UART_RX);assert(p.button_count==1U&&p.uart_count==1U&&p.batches==1U);return 0;}
