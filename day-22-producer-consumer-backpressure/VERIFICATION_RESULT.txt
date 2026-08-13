@@ -1,0 +1,32 @@
+Day 22 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day22_producer_consumer_build/projects/05-producer-consumer-backpressure/build
+Test project /mnt/data/day22_producer_consumer_build/projects/05-producer-consumer-backpressure/build
+    Start 1: ring_buffer_tests
+1/2 Test #1: ring_buffer_tests ................   Passed    0.00 sec
+    Start 2: producer_consumer_tests
+2/2 Test #2: producer_consumer_tests ..........   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.00 sec
+
+
+Simulation output:
+after_burst size=8 high_watermark=8 produced=10 dropped_oldest=2 throttles=5
+consume seq=3 ts=20 value=102 remaining=7
+consume seq=4 ts=30 value=103 remaining=6
+consume seq=5 ts=40 value=104 remaining=5
+consume seq=6 ts=50 value=105 remaining=4
+consume seq=7 ts=60 value=106 remaining=3
+consume seq=8 ts=70 value=107 remaining=2
+consume seq=9 ts=80 value=108 remaining=1
+consume seq=10 ts=90 value=109 remaining=0
+summary produced=10 consumed=8 idle=1 pushed=10 popped=8 drop_oldest=2 drop_newest=0
+
