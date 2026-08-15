@@ -1,0 +1,32 @@
+Day 23 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day23_rtos_sensor_hub_build/projects/06-rtos-sensor-hub/build
+Test project /mnt/data/day23_rtos_sensor_hub_build/projects/06-rtos-sensor-hub/build
+    Start 1: sensor_hub_tests
+1/1 Test #1: sensor_hub_tests .................   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.01 sec
+
+Simulation output:
+ready_after_2=no bits=0x03
+ready_after_3=yes bits=0x07
+after_burst queued=8 high_watermark=8 produced=10 dropped=2
+events heartbeat=1 button=1 bits=0x1F
+consume seq=3 temp=23.0 light=130.0 remaining=7
+consume seq=4 temp=24.0 light=140.0 remaining=6
+consume seq=5 temp=25.0 light=150.0 remaining=5
+consume seq=6 temp=26.0 light=160.0 remaining=4
+consume seq=7 temp=27.0 light=170.0 remaining=3
+consume seq=8 temp=28.0 light=180.0 remaining=2
+consume seq=9 temp=29.0 light=190.0 remaining=1
+consume seq=10 temp=30.0 light=200.0 remaining=0
+summary consumed=8 uart_locks=2 uart_writes=2 telemetry=2 latest_seq=10
+

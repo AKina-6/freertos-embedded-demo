@@ -1,0 +1,1 @@
+feat: integrate RTOS sensor hub with queues events timers mutex and notifications
