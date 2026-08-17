@@ -1,0 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include "protocol/protocol_frame.h"
+#include "protocol/stream_parser.h"
+static void pf(const protocol_frame_t *f){printf("frame cmd=0x%02X seq=%u len=%u payload=",f->command,f->sequence,f->length);for(uint8_t i=0;i<f->length;++i){printf("%02X",f->payload[i]);if(i+1U<f->length)printf(" ");}printf("\n");}
+int main(void){protocol_frame_t a={0x10U,1U,3U,{0x12U,0x34U,0x56U}},b={0x20U,2U,2U,{0xABU,0xCDU}};uint8_t ra[PROTOCOL_MAX_FRAME_SIZE],rb[PROTOCOL_MAX_FRAME_SIZE];size_t na=protocol_frame_encode(&a,ra,sizeof(ra)),nb=protocol_frame_encode(&b,rb,sizeof(rb));printf("encoded1_len=%lu crc=0x%02X\n",(unsigned long)na,ra[na-1U]);printf("encoded2_len=%lu crc=0x%02X\n",(unsigned long)nb,rb[nb-1U]);uint8_t s[128];size_t p=0U;s[p++]=0U;s[p++]=0xFFU;memcpy(&s[p],ra,na);p+=na;memcpy(&s[p],ra,na);s[p+na-1U]^=1U;p+=na;memcpy(&s[p],rb,nb);p+=nb;stream_parser_t parser;stream_parser_init(&parser);protocol_frame_t out[4];size_t n=stream_parser_feed(&parser,s,p,out,4U);for(size_t i=0;i<n;++i)pf(&out[i]);printf("summary frames_ok=%lu crc_errors=%lu length_errors=%lu resync=%lu produced=%lu\n",(unsigned long)parser.frames_ok,(unsigned long)parser.crc_errors,(unsigned long)parser.length_errors,(unsigned long)parser.resync_count,(unsigned long)n);return 0;}

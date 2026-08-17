@@ -1,0 +1,27 @@
+Day 24 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day24_uart_protocol_build/projects/01-uart-framed-protocol/build
+Test project /mnt/data/day24_uart_protocol_build/projects/01-uart-framed-protocol/build
+    Start 1: protocol_frame_tests
+1/2 Test #1: protocol_frame_tests .............   Passed    0.00 sec
+    Start 2: stream_parser_tests
+2/2 Test #2: stream_parser_tests ..............   Passed    0.01 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.02 sec
+
+
+Simulation output:
+encoded1_len=8 crc=0xBA
+encoded2_len=7 crc=0x7C
+frame cmd=0x10 seq=1 len=3 payload=12 34 56
+frame cmd=0x20 seq=2 len=2 payload=AB CD
+summary frames_ok=2 crc_errors=1 length_errors=0 resync=0 produced=2
+

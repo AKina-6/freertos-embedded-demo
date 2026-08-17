@@ -1,0 +1,6 @@
+- [x] Project 01：UART Framed Protocol、CRC 与 Streaming Parser
+- [ ] Project 02：UART ACK、Timeout 与 Retransmission
+- [ ] Project 03：I²C Multi-device Bus
+- [ ] Project 04：SPI Master-Slave Protocol
+- [ ] Project 05：CAN Message Model
+- [ ] Project 06：Communication Gateway

@@ -1,0 +1,5 @@
+#include "protocol/protocol_frame.h"
+#include <string.h>
+uint8_t protocol_crc8(const uint8_t *data,size_t length){uint8_t crc=0U;for(size_t i=0;i<length;++i){crc^=data[i];for(uint8_t b=0;b<8U;++b)crc=(crc&0x80U)?(uint8_t)((crc<<1U)^0x07U):(uint8_t)(crc<<1U);}return crc;}
+size_t protocol_frame_encode(const protocol_frame_t *f,uint8_t *o,size_t c){if(!f||!o||f->length>PROTOCOL_MAX_PAYLOAD)return 0U;size_t t=PROTOCOL_HEADER_SIZE+f->length+PROTOCOL_CRC_SIZE;if(c<t)return 0U;o[0]=PROTOCOL_SOF;o[1]=f->command;o[2]=f->sequence;o[3]=f->length;if(f->length)memcpy(&o[4],f->payload,f->length);o[t-1U]=protocol_crc8(&o[1],t-2U);return t;}
+bool protocol_frame_decode(const uint8_t *d,size_t l,protocol_frame_t *f){if(!d||!f||l<5U||d[0]!=PROTOCOL_SOF)return false;uint8_t n=d[3];if(n>PROTOCOL_MAX_PAYLOAD)return false;size_t e=PROTOCOL_HEADER_SIZE+n+PROTOCOL_CRC_SIZE;if(l!=e)return false;if(d[e-1U]!=protocol_crc8(&d[1],e-2U))return false;f->command=d[1];f->sequence=d[2];f->length=n;if(n)memcpy(f->payload,&d[4],n);return true;}
