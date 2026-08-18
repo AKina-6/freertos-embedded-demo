@@ -1,0 +1,27 @@
+Day 25 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day25_uart_reliable_build/projects/02-uart-reliable-transport/build
+Test project /mnt/data/day25_uart_reliable_build/projects/02-uart-reliable-transport/build
+    Start 1: reliable_transport_tests
+1/2 Test #1: reliable_transport_tests .........   Passed    0.00 sec
+    Start 2: reliable_sender_tests
+2/2 Test #2: reliable_sender_tests ............   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.00 sec
+
+
+Simulation output:
+start state=WAIT_ACK seq=42 retries=0 tx=1 timeouts=0 acks=0 ignored=0 link_sends=1
+timeout_retry state=WAIT_ACK seq=42 retries=1 tx=2 timeouts=1 acks=0 ignored=0 link_sends=2
+ack_ok state=SUCCESS seq=42 retries=1 tx=2 timeouts=1 acks=1 ignored=0 link_sends=2
+duplicate_ack state=SUCCESS seq=42 retries=1 tx=2 timeouts=1 acks=1 ignored=1 link_sends=2
+retry_exhausted state=FAILED seq=43 retries=2 tx=3 timeouts=3 acks=0 ignored=0 link_sends=5
+
