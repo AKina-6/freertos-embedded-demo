@@ -1,0 +1,1 @@
+feat: add I2C multi-device bus manager and recovery demo

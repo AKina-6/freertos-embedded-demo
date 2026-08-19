@@ -1,0 +1,29 @@
+Day 26 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day26_i2c_multidevice_build/projects/03-i2c-multidevice-bus/build
+Test project /mnt/data/day26_i2c_multidevice_build/projects/03-i2c-multidevice-bus/build
+    Start 1: registry_tests
+1/2 Test #1: registry_tests ...................   Passed    0.00 sec
+    Start 2: manager_tests
+2/2 Test #2: manager_tests ....................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.00 sec
+
+
+Simulation output:
+add_bh1750=ok
+add_oled=ok
+duplicate_0x23=rejected
+write_bh1750 status=0 writes=1 retries=0
+read_after_timeout status=0 data=1234 reads=2 recoveries=1 scl_pulses=9 retries=1
+write_after_nack status=0 nack_count=1 recoveries=1 retries=2
+summary devices=2 duplicate_rejects=1 success=3 bus_recovery_count=1
+
