@@ -1,0 +1,25 @@
+Day 27 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /tmp/day27build
+Test project /tmp/day27build
+    Start 1: spi_protocol_tests
+1/2 Test #1: spi_protocol_tests ...............   Passed    0.00 sec
+    Start 2: spi_transaction_slave_tests
+2/2 Test #2: spi_transaction_slave_tests ......   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   0.00 sec
+
+Simulation output:
+slave_write_config status=0 config=42 seq=1
+slave_read_data status=0 data=0x1234 requests=2
+encoded_response len=8 checksum=0x85
+full_duplex ok=yes rx=60 FF FF FF cs=1/1 transfers=1
+timeout_case ok=no failures=1 host_timeouts=1 cs_active=no
