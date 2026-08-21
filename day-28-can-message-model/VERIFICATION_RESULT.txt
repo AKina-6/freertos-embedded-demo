@@ -1,0 +1,27 @@
+Day 28 automated verification
+
+CMake configure status: 0
+CMake build status: 0
+CTest status: 0
+Simulation status: 0
+
+CTest output:
+Internal ctest changing into directory: /mnt/data/day28_can_message_model_build/projects/05-can-message-model/build
+Test project /mnt/data/day28_can_message_model_build/projects/05-can-message-model/build
+    Start 1: can_model_tests
+1/1 Test #1: can_model_tests ..................   Passed    0.00 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.00 sec
+
+
+Simulation output:
+winner source=Alarm id=0x080 dlc=2 data=01 FF
+winner source=UI id=0x105 dlc=3 data=41 42 43
+winner source=Sensor id=0x120 dlc=4 data=19 08 02 58
+display rx=1 filtered=2 last=0x105
+gateway rx=0 filtered=3
+logger rx=3 filtered=0 last=0x120
+summary transmitted=3 arbitrations=3 invalid=0
+
